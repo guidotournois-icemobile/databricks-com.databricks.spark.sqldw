@@ -1,7 +1,6 @@
 # Databricks notebook source
 # Set credentials for blob storage 
-# spark.conf.set(dbutils.secrets.get(scope = "blob-credentials", key = "account"), dbutils.secrets.get(scope = "blob-credentials", key = "key")) 
-spark.conf.set("fs.azure.account.key.databricksstoragedevweu.blob.core.windows.net", "c9PKbMQ+2qnVAQwb4alD70F+kulfN3omjIjmKAOzT5bvSRKaOkx4MJLHGUCuYYbUq3v3E6dMR4+Rwi4OGM+5KQ==") 
+spark.conf.set("fs.azure.account.key.databricksstoragedevweu.blob.core.windows.net", "******accesskey******") 
 
 username = "guido.tournois@icemobile.com" # AAD user with READ permission on database
 password = dbutils.secrets.get("guido.tournois@icemobile.com","password")
@@ -14,7 +13,7 @@ jdbcString = (
 
 df = (spark.read.format("com.databricks.spark.sqldw")
                 .option("url", jdbcString)
-                .option("tempDir", "wasbs://data2@databricksstoragedevweu.blob.core.windows.net/tmp")
+                .option("tempDir", "wasbs://data@databricksstoragedevweu.blob.core.windows.net/tmp")
                 .option("forward_spark_azure_storage_credentials", "true")
                 .option("user","guido.tournois@icemobile.com")
                 .option("password",password)
