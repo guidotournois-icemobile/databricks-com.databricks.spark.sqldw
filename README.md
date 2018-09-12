@@ -19,7 +19,7 @@ In order to see all that happens under the hood with `com.databricks.spark.sqldw
 In example.py we see two code blocks / cells.
 1. The first cell loads the data in a lazy way, only meta data is read from the SQL datawarehouse by running `set fmtonly on`
 The resulting SQL actions of this commands can be found in the EXCEL file run_as_admin.xlsx also in this Repo.
-2. When the second cell is run, many things happen. 
+2. When the second cell is run, the following things happen in order. 
 * A temporary scoped credential is created in our SQL datawarehouse with the blobstorage credentials.
 * An external datasource is created with these credentials
 * An external Fileformat is created 
